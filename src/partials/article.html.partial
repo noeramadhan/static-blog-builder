@@ -1,0 +1,8 @@
+<article class="post">
+    <div class="header">
+        <span class="meta"></span>
+        <h1 class="title"></h1>
+    </div>
+    <div class="content"></div>
+    <a href=".." class="link">&lt;&nbsp;back</a>
+</article>

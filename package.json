@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@node-minify/core": "^8.0.5",
+    "@node-minify/html-minifier": "^8.0.5",
+    "cheerio": "^1.0.0-rc.12",
+    "showdown": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "reload": "^3.2.1",
+    "serve": "^14.2.0"
+  },
+  "scripts": {
+    "build": "nodemon src/builder.js -w src -e html,js,md,partial",
+    "build-once": "node src/builder.js",
+    "serve-hot": "reload -d build -p 3000",
+    "serve": "serve build -p 3000 -L"
+  }
+}

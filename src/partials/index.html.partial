@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=".">
+    <meta name="theme-color" content="#000000"/>
+    <link rel="icon" href="data:,">
+    <link rel="apple-touch-icon" href="data:,">
+    <title>.</title>
+    <style>
+        :root {
+            --color-bg: #000;
+            --color: #fafafa;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: var(--color-bg);
+            color: var(--color);
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: -0.025rem;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern";
+            font-kerning: normal;
+        }
+
+        html {
+            font-size: 18px;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            padding: 0 2.5rem;
+            align-items: center;
+            line-height: 1.8;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        a,
+        .title {
+            -webkit-box-decoration-break: clone;
+            -o-box-decoration-break: clone;
+            box-decoration-break: clone;
+            text-underline-offset: .5ch;
+            line-height: 1.5;
+        }
+
+        a:hover {
+            margin: 0 -.5rem;
+            text-decoration: none;
+        }
+
+        a:hover,
+        .header .title {
+            padding: .125rem .5rem;
+            display: inline;
+            background-color: var(--color);
+            color: var(--color-bg);
+        }
+
+        .meta {
+            margin: 0 0 1ch 0;
+            display: block;
+            font-size: 0.67rem;
+        }
+
+        .header,
+        .item {
+            max-width: 31rem;
+            margin: 4ch 0 2ch 0;
+        }
+
+        .content {
+            margin: 0 0 4ch 0;
+        }
+
+        .content p {
+            margin: 0 0 2ch 0;
+        }
+
+        .post {
+            margin-bottom: 4ch;
+        }
+
+        .app {
+            max-width: 1000px;
+        }
+    </style>
+</head>
+
+<body class="app"></body>
+
+</html>

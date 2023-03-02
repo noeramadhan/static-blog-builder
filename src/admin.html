@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>/// | Admin</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cache-control" content="private,max-age=0,no-cache">
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<style>
+		html {
+			height: 100vh;
+		}
+
+		body {
+			font-size: 16px;
+		}
+
+		.app {
+			max-width: 650px;
+			height: 100%;
+		}
+
+		* {
+			font-family: 'Helvetica', sans-serif !important;
+			font-display: swap;
+			text-rendering: optimizeLegibility;
+			font-feature-settings: "kern";
+			-webkit-font-feature-settings: "kern";
+			-moz-font-feature-settings: "kern";
+			-moz-font-feature-settings: "kern=1";
+		}
+
+		section.content p {
+			max-width: 60ch;
+			font-size: 1.1rem !important;
+			line-height: 1.7rem !important;
+			letter-spacing: -.04rem;
+		}
+
+		header.header {
+			font-size: 4rem;
+			letter-spacing: -.3rem;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="app mx-auto">
+		<div class="card card-body p-0 px-3 pb-5 m-0 border-0">
+			<header class="header text-center p-3 mb-4">
+				<span class="font-weight-bold">///</span>
+			</header>
+			<section class="content container pt-0 mt-0 mb-2">
+				<div class="form ">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" class="form-control form-control-sm" id="title" name="title">
+					</div>
+					<div class="form-group">
+						<label for="slug">Slug</label>
+						<input type="text" class="form-control form-control-sm" id="slug" name="slug">
+					</div>
+					<div class="form-group">
+						<label for="date">Date</label>
+						<input type="date" class="form-control form-control-sm" id="date" name="date">
+					</div>
+					<div class="form-group">
+						<label for="content">Content</label>
+						<textarea name="content" id="content" cols="30" rows="10"
+							class="form-control form-control-sm">Example</textarea>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-sm btn-block btn-outline-dark" onclick="save()">Save</button>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script type="application/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+	<script type="application/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" async> </script>
+	<script type="application/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" async> </script>
+	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"
+		async> </script>
+	<script type="text/javascript">
+
+		function save() {
+			var title = $("#title").val();
+			var slug = $("#slug").val();
+
+			var date = new Date($("#date").val());
+			date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+
+			var meta = ["---\n", "title: " + title + "\n", "date: " + date + "\n",  "show: true\n", "---\n"];
+
+			var text = meta.concat($("#content").val());
+
+			var url = URL.createObjectURL(new Blob(text, { type: 'text/markdown' })),
+				div = document.createElement("div"),
+				anch = document.createElement("a");
+
+			document.body.appendChild(div);
+			div.appendChild(anch);
+
+			anch.innerHTML = "&nbsp;";
+			div.style.width = "0";
+			div.style.height = "0";
+			anch.href = url;
+			anch.download = slug + ".md";
+
+			var ev = new MouseEvent("click", {});
+			anch.dispatchEvent(ev);
+			document.body.removeChild(div);
+		}
+
+	</script>
+</body>
+
+</html>
